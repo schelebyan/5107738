@@ -1,6 +1,6 @@
 import React from "react";
 import { Alert, Snackbar, SnackbarProps } from "@mui/material";
-import { MessageType } from "../../models/common";
+import { MessageType } from "../../models/Error";
 
 interface IProps {
   type: MessageType;

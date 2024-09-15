@@ -12,13 +12,13 @@ import CloseIcon from "@mui/icons-material/Close";
 
 interface IProps extends DialogProps {
   onClose: () => void;
-  confirmationbutton: ReactNode;
+  confirmationButton: ReactNode;
   children: ReactNode;
   title: string;
 }
 
 const ModalLayout: React.FC<IProps> = (props) => {
-  const { onClose, confirmationbutton, children, title } = props;
+  const { onClose, confirmationButton, children, title } = props;
 
   return (
     <Dialog {...props}>
@@ -40,7 +40,7 @@ const ModalLayout: React.FC<IProps> = (props) => {
         <Button autoFocus onClick={onClose}>
           Cancel
         </Button>
-        {confirmationbutton}
+        {confirmationButton}
       </DialogActions>
     </Dialog>
   );

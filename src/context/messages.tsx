@@ -53,7 +53,7 @@ export const useMessages = (): ContextProps => useContext(MessagesContext);
 
 const createSetMessageAction = (
   message?: string,
-  type = MessageType.Info
+  type = MessageType.Info,
 ): IAction => ({
   type: ActionType.SetMessage,
   payload: {
@@ -138,7 +138,7 @@ const MessagesProvider: React.FC<{ children: React.ReactNode }> = (props) => {
         }),
       clearPageError: () => dispatch({ type: ActionType.ClearPageError }),
     }),
-    [dispatch]
+    [dispatch],
   );
 
   return (

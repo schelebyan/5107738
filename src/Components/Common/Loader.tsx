@@ -12,13 +12,12 @@ interface IProps {
   minHeight?: number;
 }
 
-export default function Loader({
-  size = 100,
-  minHeight = 500,
-}: IProps): JSX.Element {
+const Loader: React.FC<IProps> = ({ size = 100, minHeight = 500 }) => {
   return (
     <LoaderEl sx={{ minHeight }}>
       <CircularProgress size={size} data-testid="progress" />
     </LoaderEl>
   );
-}
+};
+
+export default Loader;

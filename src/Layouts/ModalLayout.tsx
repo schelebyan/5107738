@@ -1,47 +1,76 @@
 import React, { ReactNode } from "react";
 import {
-  Button,
+  Box,
   Dialog,
-  DialogActions,
   DialogContent,
   DialogProps,
   DialogTitle,
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import theme, { appColors } from "../theme";
 
 interface IProps extends DialogProps {
   onClose: () => void;
-  confirmationButton: ReactNode;
   children: ReactNode;
   title: string;
 }
 
 const ModalLayout: React.FC<IProps> = (props) => {
-  const { onClose, confirmationButton, children, title } = props;
+  const { onClose, children, title } = props;
 
   return (
-    <Dialog {...props}>
-      <DialogTitle sx={{ m: 0, p: 2 }}>{title}</DialogTitle>
-      <IconButton
-        aria-label="close"
-        onClick={onClose}
+    <Dialog
+      {...props}
+      PaperProps={{
+        style: {
+          backgroundColor: "transparent",
+          borderRadius: 16,
+          minHeight: 400,
+        },
+      }}
+    >
+      <Box
         sx={{
-          position: "absolute",
-          right: 8,
-          top: 8,
-          color: (theme) => theme.palette.grey[500],
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: 110,
+          minHeight: 110,
+          backgroundColor: appColors.barBackground,
         }}
       >
-        <CloseIcon />
-      </IconButton>
-      <DialogContent>{children}</DialogContent>
-      <DialogActions>
-        <Button autoFocus onClick={onClose}>
-          Cancel
-        </Button>
-        {confirmationButton}
-      </DialogActions>
+        <DialogTitle
+          sx={{
+            m: 0,
+            p: 2,
+            color: theme.palette.common.white,
+            textAlign: "center",
+            fontWeight: 500,
+            fontSize: 36,
+            width: "100%",
+            padding: 0,
+          }}
+        >
+          {title}
+        </DialogTitle>
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{
+            position: "absolute",
+            right: 8,
+            color: (theme) => theme.palette.common.white,
+          }}
+        >
+          <CloseIcon sx={{ fontSize: 42 }} />
+        </IconButton>
+      </Box>
+
+      <DialogContent sx={{ backgroundColor: appColors.background }}>
+        {children}
+      </DialogContent>
     </Dialog>
   );
 };

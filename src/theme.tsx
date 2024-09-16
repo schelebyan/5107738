@@ -3,6 +3,8 @@ import { red } from "@mui/material/colors";
 
 export const appColors = {
   background: "#546e7a",
+  barBackground: "#37474f",
+  timerBackground: "#263238",
 };
 
 // A custom theme for this app

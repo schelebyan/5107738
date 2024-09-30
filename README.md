@@ -101,7 +101,7 @@ yarn run prepare
 
 ## main.tsx
 
-creates react dom room and wraps the main app (`App.tsx`) with providers
+init react and wraps the main app (`App.tsx`) with providers
 
 ## App.tsx
 
